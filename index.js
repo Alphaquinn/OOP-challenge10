@@ -4,10 +4,9 @@ const path = require("path");
 const outputDir = path.resolve(__dirname,"output");
 const outputPath=path.join(outputDir,"Team.html");
 const Manager = require("./lib/Manager");
-const Employee = require("./lib/Employee");
 const Engineer =require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-
+const generateHTML = require("./src/generateTemplate");
 
 
 const EmployeeArray =[];
@@ -74,6 +73,24 @@ function questionStart(){
         EmployeeArray.push(intern);
     }
     if (answer.role==="manager"){
-        const manager = new Manager (answer.name, answer.id,answer.email,answer.office_number)
+        const manager = new Manager (answer.name, answer.id,answer.email,answer.office_number);
+        EmployeeArray.push(manager);
+
     }
-})}
+
+
+
+if (answer.yes_no==="yes"){
+    questionStart();
+}else{
+    fs.writeFile(outputPath, generateHTML(EmployeeArray),(error)=>{if(error){
+        return console.log(error);
+    }
+    return console.log("it works");
+
+});
+}
+})
+}
+
+questionStart();

@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+{"scripts": {
+  "test": "jest",
+  "start": "node index.js"
+},
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^27.3.1"
+  }
+}

@@ -1,4 +1,4 @@
-const inquirer = require("inquirer");
+const inquirer  = require("inquire");
 const fs = require("fs");
 const path = require("path");
 const outputDir = path.resolve(__dirname,"output");
@@ -9,7 +9,7 @@ const Intern = require("./lib/Intern");
 const generateHTML = require("./src/templateGenerate");
 
 
-const EmployeeArray =[];
+const EmployeeLIST =[];
 const profileQuestions = [
     {
         message: "What role is being assigned to the new team member?",
@@ -55,12 +55,12 @@ when: (answer)=>answer.role === "intern",
 
 
 
-function questionStart(){
+function questionBegin(){
     inquirer.prompt
 (profileQuestions).then((answer)=>{
     if(answer.role==="engineer"){
         const engineer = new Engineer (answer.name, answer.id, answer.email);
-        EmployeeArray.push(engineer);
+        EmployeeLIST.push(engineer);
     }
 
     if (answer.role==="intern"){
@@ -70,28 +70,28 @@ function questionStart(){
             answer.email,
             answer.intern_school
         );
-        EmployeeArray.push(intern);
+        EmployeeLIST.push(intern);
     }
     if (answer.role==="manager"){
         const manager = new Manager (answer.name, answer.id,answer.email,answer.office_number);
-        EmployeeArray.push(manager);
+        EmployeeLIST.push(manager);
 
     }
 
 
 
 if (answer.yes_no==="yes"){
-    questionStart();
+    questionBegin();
 }else{
-    fs.writeFile(outputPath, generateHTML(EmployeeArray),(error)=>{if(error){
+    fs.writeFile(outputPath, generateHTML(EmployeeLIST),(error)=>{if(error){
         return console.log(error);
     }
-    return console.log("it works");
+    return console.log("works");
 
 });
 }
 })
 }
 
-questionStart();
+questionBegin();
 

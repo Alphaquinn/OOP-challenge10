@@ -1,1 +1,1 @@
-{"scripts":{"test":"jest","start":"node index.js"},"dependencies":{"bootstrap":"^4.5.0","inquirer":"^8.2.4","jest":"^29.4.3"}}
+{"scripts":{"test":"jest","start":"node index.js"},"dependencies":{"inquirer":"^9.1.4","jest":"^29.4.3"}}

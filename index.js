@@ -2,11 +2,11 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
 const outputDir = path.resolve(__dirname,"output");
-const outputPath=path.join(outputDir,"Team.html");
+const outputPath = path.join(outputDir,"Team.html");
 const Manager = require("./lib/Manager");
 const Engineer =require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const generateHTML = require("./src/generateTemplate");
+const generateHTML = require("./src/templateGenerate");
 
 
 const EmployeeArray =[];

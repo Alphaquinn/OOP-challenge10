@@ -26,7 +26,7 @@ return generateCompany;
 
 
 }
-const generateM= function(manager){
+const generateManager= function(manager){
     return `
     <div class=col-4 mt-4>
     <div class="card h-100">
@@ -48,7 +48,7 @@ const generateM= function(manager){
 
 
 
-const generateI= function(manager){
+const generateIntern= function(manager){
     return `
     <div class=col-4 mt-4>
     <div class="card h-100">
@@ -67,7 +67,7 @@ const generateI= function(manager){
 
 
 };
-const generateE= function(engineer){
+const generateEmployee= function(engineer){
     return `
     <div class=col-4 mt-4>
     <div class="card h-100">
